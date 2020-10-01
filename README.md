@@ -31,5 +31,5 @@ Terraform v0.12.29
 This is an extremely simple PoC and might crash and burn in more complicated scenarios. For example:
 
 - It doesn't have any fallback if no matching terraform version can be found
-- Undefined behaviour of more or less than exactly 1 `required_version` constraint exists
+- Undefined behaviour if more or less than exactly 1 `required_version` constraint exists
 - There are no tests
