@@ -1,0 +1,19 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  build:
+    name: goreleaser
+    runs-on: ubuntu-18.04
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GORELEASER_VERSION: v0.143.0
+    steps:
+      - uses: actions/checkout@v1
+      - run: |
+          curl -L -o /tmp/goreleaser_Linux_x86_64.tar.gz https://github.com/goreleaser/goreleaser/releases/download/${GORELEASER_VERSION}/goreleaser_Linux_x86_64.tar.gz
+          tar -xvzf /tmp/goreleaser_Linux_x86_64.tar.gz -C /tmp goreleaser
+          /tmp/goreleaser release --rm-dist

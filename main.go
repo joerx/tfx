@@ -42,7 +42,7 @@ func downloadAndRun(tfargs []string) error {
 	}
 
 	constraint := module.RequiredCore[0]
-	fmt.Printf("trying to find terraform version matching \"%s\"\n", constraint)
+	log.Printf("Trying to find terraform version matching \"%s\"\n", constraint)
 
 	versions, err := fetchTerraformVersions()
 	if err != nil {
